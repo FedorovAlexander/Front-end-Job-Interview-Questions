@@ -71,7 +71,7 @@ var bar = foo;
 foo.x = foo = {n: 2};
 ~~~~
 Ответ: `undefined`. 
-`foo.x = foo = {n: 2}` то же, что и `foo.x = (foo = {n: 2})`. `foo` на которую ссылается `foo.x` "устанавливается" перед тем, как `foo` изменится. `foo.x` ссылается на старое значение `foo`. Это значит, что в старом `foo` появится новвое свойство `x` равное `{n: 2}`. А в новое `foo` запишется `{n: 2}`. Значение старого `foo` находится в `bar`.
+`foo.x = foo = {n: 2}` то же, что и `foo.x = (foo = {n: 2})`. `foo` на которую ссылается `foo.x` "устанавливается" перед тем, как `foo` изменится. `foo.x` ссылается на старое значение `foo`. Это значит, что в старом `foo` появится новое свойство `x` равное `{n: 2}`. А в новое `foo` запишется `{n: 2}`. Значение старого `foo` находится в `bar`.
 ~~~~
 {
   n: 1,
@@ -81,6 +81,7 @@ foo.x = foo = {n: 2};
 }
 ~~~~
 Так как при дальнейшем выводе `foo.x` наше `foo` ссылается на его новое значение, в котором отстутствует `x`, то `foo.x` будет неопределено.
+
 
 Question: What does the following code print?
 ~~~~
@@ -93,6 +94,8 @@ Promise.resolve().then(function() {
 })
 console.log('four');
 ~~~~
+Ответ: 'one', 'four', 'three', 'two'. `setTimeout` часть основной очереди (main task queue), тогда как `Promise` в miscro task queue, которая выполняется перед основной. Поэтому сначала выведентся 'three', а потом 'two'.
+
 
 Question: What is the difference between these four promises?
 ~~~~
@@ -104,4 +107,6 @@ doSomething().then(function () {
 });
 doSomething().then(doSomethingElse());
 doSomething().then(doSomethingElse);
-~~~
+~~~~
+
+[Подробный ответ](http://frontiermag.ru/problem-with-promises.html)
