@@ -2,7 +2,7 @@
 
 В этом репозитории собраны ответы на вопросы кандидату на должность frontend разработчика. <br>
 Вопросы взяты отсюда: [link](https://h5bp.org/Front-end-Developer-Interview-Questions/translations/russian/) <br>
-Удобная для чтения версия на gh-pages: [link](https://fedorovalexander.github.io/Front-end-Job-Interview-Questions/)
+Gh-pages: [link](https://fedorovalexander.github.io/Front-end-Job-Interview-Questions/)
 
 ## Содержание
 
