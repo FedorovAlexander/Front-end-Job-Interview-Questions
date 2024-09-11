@@ -95,3 +95,26 @@ Promise.resolve().then(function() {
 console.log('four');
 ~~~~
 Ответ: 'one', 'four', 'three', 'two'. `setTimeout` часть основной очереди (main task queue), тогда как `Promise` в miscro task queue, которая выполняется перед основной. Поэтому сначала выведентся 'three', а потом 'two'.
+
+Вопрос: Написать функцию, которая принимает 2 строки и возвращает результат их лексикографического сравнения.
+~~~~javascript
+// dog dgo -> true
+// dog dfo -> false
+// doog ddog -> false
+
+const check = (s1, s2) => {
+  const l1 = s1.split("").sort();
+  const l2 = s2.split("").sort();
+
+  if (l1.join() === l2.join()) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(check("dog", "dgo"));
+console.log(check("dog", "dfo"));
+console.log(check("doog", "ddog"));
+~~~~
+Ответ: для решения задачи нужно разбить дву строки посимвольно, используя метод split, и, полученный массивы отсортировать по возрастанию с использованием стандартного метода sort. Псоле чего к полученным массивам, которые отсортированы лексикографически, применить метод join, который из последних создаст строки и спавнивать уже эти строки. Результат сравнения возвращать из функции.
