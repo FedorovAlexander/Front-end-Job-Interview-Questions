@@ -106,7 +106,7 @@ const check = (s1, s2) => {
   const l1 = s1.split("").sort();
   const l2 = s2.split("").sort();
 
-  return l1.join() === l2.join();
+  return l1.join("") === l2.join("");
 };
 
 console.log(check("dog", "dgo"));
